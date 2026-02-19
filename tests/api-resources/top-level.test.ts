@@ -10,7 +10,12 @@ const client = new Ceramic({
 describe('top level methods', () => {
   // Prism tests are disabled
   test.skip('search: only required params', async () => {
-    const responsePromise = client.search({ query: 'California rental laws' });
+    const responsePromise = client.search({
+      id: 1,
+      jsonrpc: '2.0',
+      method: 'query',
+      params: { query: 'California rental laws' },
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,9 +28,14 @@ describe('top level methods', () => {
   // Prism tests are disabled
   test.skip('search: required and optional params', async () => {
     const response = await client.search({
-      query: 'California rental laws',
-      maxDescriptionLength: 1,
-      maxResults: 1,
+      id: 1,
+      jsonrpc: '2.0',
+      method: 'query',
+      params: {
+        query: 'California rental laws',
+        maxDescriptionLength: 1,
+        maxResults: 1,
+      },
     });
   });
 });
