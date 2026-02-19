@@ -29,14 +29,9 @@ const client = new Ceramic({
   apiKey: process.env['CERAMIC_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.search({
-  id: 1,
-  jsonrpc: '2.0',
-  method: 'query',
-  params: { query: 'California rental laws' },
-});
+const response = await client.search({ query: 'California rental laws' });
 
-console.log(response.id);
+console.log(response.requestId);
 ```
 
 ### Request & Response types
@@ -51,12 +46,7 @@ const client = new Ceramic({
   apiKey: process.env['CERAMIC_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Ceramic.SearchParams = {
-  id: 1,
-  jsonrpc: '2.0',
-  method: 'query',
-  params: { query: 'California rental laws' },
-};
+const params: Ceramic.SearchParams = { query: 'California rental laws' };
 const response: Ceramic.SearchResponse = await client.search(params);
 ```
 
@@ -70,22 +60,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client
-  .search({
-    id: 1,
-    jsonrpc: '2.0',
-    method: 'query',
-    params: { query: 'California rental laws' },
-  })
-  .catch(async (err) => {
-    if (err instanceof Ceramic.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+const response = await client.search({ query: 'California rental laws' }).catch(async (err) => {
+  if (err instanceof Ceramic.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -117,12 +100,7 @@ const client = new Ceramic({
 });
 
 // Or, configure per-request:
-await client.search({
-  id: 1,
-  jsonrpc: '2.0',
-  method: 'query',
-  params: { query: 'California rental laws' },
-}, {
+await client.search({ query: 'California rental laws' }, {
   maxRetries: 5,
 });
 ```
@@ -139,12 +117,7 @@ const client = new Ceramic({
 });
 
 // Override per-request:
-await client.search({
-  id: 1,
-  jsonrpc: '2.0',
-  method: 'query',
-  params: { query: 'California rental laws' },
-}, {
+await client.search({ query: 'California rental laws' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -167,27 +140,15 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Ceramic();
 
-const response = await client
-  .search({
-    id: 1,
-    jsonrpc: '2.0',
-    method: 'query',
-    params: { query: 'California rental laws' },
-  })
-  .asResponse();
+const response = await client.search({ query: 'California rental laws' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client
-  .search({
-    id: 1,
-    jsonrpc: '2.0',
-    method: 'query',
-    params: { query: 'California rental laws' },
-  })
+  .search({ query: 'California rental laws' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.id);
+console.log(response.requestId);
 ```
 
 ### Logging

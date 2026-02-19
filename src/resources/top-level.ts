@@ -2,16 +2,11 @@
 
 export interface SearchResponse {
   /**
-   * The request ID you provided.
+   * Server-generated request identifier (often a UUID).
    */
-  id?: number;
+  requestId: string;
 
-  /**
-   * JSON-RPC version. Always "2.0".
-   */
-  jsonrpc?: string;
-
-  result?: SearchResponse.Result;
+  result: SearchResponse.Result;
 }
 
 export namespace SearchResponse {
@@ -19,14 +14,14 @@ export namespace SearchResponse {
     /**
      * Array of search results.
      */
-    results?: Array<Result.Result>;
+    results: Array<Result.Result>;
 
-    searchMetadata?: Result.SearchMetadata;
+    searchMetadata: Result.SearchMetadata;
 
     /**
      * Total number of results returned.
      */
-    totalResults?: number;
+    totalResults: number;
   }
 
   export namespace Result {
@@ -34,69 +29,48 @@ export namespace SearchResponse {
       /**
        * A text snippet from the page content.
        */
-      description?: string;
+      description: string;
 
       /**
        * Relevance score for the result.
        */
-      score?: number;
+      score: number;
 
       /**
        * The title of the web page.
        */
-      title?: string;
+      title: string;
 
       /**
        * The URL of the web page.
        */
-      url?: string;
+      url: string;
     }
 
     export interface SearchMetadata {
       /**
        * Time taken to execute the search in seconds.
        */
-      executionTime?: number;
+      executionTime: number;
     }
   }
 }
 
 export interface SearchParams {
   /**
-   * A unique identifier for the request.
+   * The search query in natural language.
    */
-  id: number;
+  query: string;
 
   /**
-   * JSON-RPC version. Must be "2.0".
+   * Maximum character length for result descriptions.
    */
-  jsonrpc: '2.0';
+  maxDescriptionLength?: number;
 
   /**
-   * The method to call. Use "query" for search.
+   * Maximum number of results to return.
    */
-  method: 'query';
-
-  params: SearchParams.Params;
-}
-
-export namespace SearchParams {
-  export interface Params {
-    /**
-     * The search query in natural language.
-     */
-    query: string;
-
-    /**
-     * Maximum character length for result descriptions.
-     */
-    maxDescriptionLength?: number;
-
-    /**
-     * Maximum number of results to return.
-     */
-    maxResults?: number;
-  }
+  maxResults?: number;
 }
 
 export declare namespace TopLevel {

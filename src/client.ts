@@ -199,15 +199,12 @@ export class Ceramic {
   }
 
   /**
-   * Search the web and retrieve relevant content. Uses JSON-RPC 2.0 format.
+   * Search the web and retrieve relevant content.
    *
    * @example
    * ```ts
    * const response = await client.search({
-   *   id: 1,
-   *   jsonrpc: '2.0',
-   *   method: 'query',
-   *   params: { query: 'California rental laws' },
+   *   query: 'California rental laws',
    * });
    * ```
    */
