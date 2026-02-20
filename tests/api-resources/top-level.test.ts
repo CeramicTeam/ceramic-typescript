@@ -8,7 +8,7 @@ const client = new Ceramic({
 });
 
 describe('top level methods', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('search: only required params', async () => {
     const responsePromise = client.search({ query: 'California rental laws' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('top level methods', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('search: required and optional params', async () => {
     const response = await client.search({
       query: 'California rental laws',
