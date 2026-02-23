@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'ceramic/core/api-promise';
+import { APIPromise } from 'ceramic-ai/core/api-promise';
 
 import util from 'node:util';
-import Ceramic from 'ceramic';
-import { APIUserAbortError } from 'ceramic';
+import Ceramic from 'ceramic-ai';
+import { APIUserAbortError } from 'ceramic-ai';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

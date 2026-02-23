@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   apiKey: 'My API Key',

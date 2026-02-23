@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "ceramic/*": ["./dist/src/*"],
-      "ceramic": ["./dist/src/index.ts"]
+      "ceramic-ai/*": ["./dist/src/*"],
+      "ceramic-ai": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

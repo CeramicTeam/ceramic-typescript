@@ -1,6 +1,6 @@
 # Ceramic TypeScript API Library
 
-[![NPM version](<https://img.shields.io/npm/v/ceramic.svg?label=npm%20(stable)>)](https://npmjs.org/package/ceramic) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ceramic)
+[![NPM version](<https://img.shields.io/npm/v/ceramic-ai.svg?label=npm%20(stable)>)](https://npmjs.org/package/ceramic-ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ceramic-ai)
 
 This library provides convenient access to the Ceramic REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,11 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/ceramic-typescript.git
+npm install git+ssh://git@github.com:CeramicTeam/ceramic-typescript.git
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install ceramic`
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install ceramic-ai`
 
 ## Usage
 
@@ -23,7 +23,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   apiKey: process.env['CERAMIC_API_KEY'], // This is the default and can be omitted
@@ -40,7 +40,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   apiKey: process.env['CERAMIC_API_KEY'], // This is the default and can be omitted
@@ -165,7 +165,7 @@ The log level can be configured in two ways:
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   logLevel: 'debug', // Show all log messages
@@ -193,7 +193,7 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 import pino from 'pino';
 
 const logger = pino();
@@ -262,7 +262,7 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 import fetch from 'my-fetch';
 
 const client = new Ceramic({ fetch });
@@ -273,7 +273,7 @@ const client = new Ceramic({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   fetchOptions: {
@@ -290,7 +290,7 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
@@ -304,7 +304,7 @@ const client = new Ceramic({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import Ceramic from 'ceramic';
+import Ceramic from 'ceramic-ai';
 
 const client = new Ceramic({
   fetchOptions: {
@@ -316,7 +316,7 @@ const client = new Ceramic({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import Ceramic from 'npm:ceramic';
+import Ceramic from 'npm:ceramic-ai';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
 const client = new Ceramic({
@@ -338,7 +338,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/ceramic-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/CeramicTeam/ceramic-typescript/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
