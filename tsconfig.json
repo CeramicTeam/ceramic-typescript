@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "ceramic/*": ["./src/*"],
-      "ceramic": ["./src/index.ts"]
+      "ceramic-ai/*": ["./src/*"],
+      "ceramic-ai": ["./src/index.ts"]
     },
     "noEmit": true,
 

@@ -1,4 +1,4 @@
-import { fromBase64, toBase64 } from 'ceramic/internal/utils/base64';
+import { fromBase64, toBase64 } from 'ceramic-ai/internal/utils/base64';
 
 describe.each(['Buffer', 'atob'])('with %s', (mode) => {
   let originalBuffer: BufferConstructor;

@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^ceramic$': '<rootDir>/src/index.ts',
-    '^ceramic/(.*)$': '<rootDir>/src/$1',
+    '^ceramic-ai$': '<rootDir>/src/index.ts',
+    '^ceramic-ai/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

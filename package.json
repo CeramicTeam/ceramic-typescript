@@ -1,12 +1,12 @@
 {
-  "name": "ceramic",
+  "name": "ceramic-ai",
   "version": "0.0.1",
   "description": "The official TypeScript library for the Ceramic API",
   "author": "Ceramic <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/ceramic-typescript",
+  "repository": "github:CeramicTeam/ceramic-typescript",
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.27.0",
   "files": [

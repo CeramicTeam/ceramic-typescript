@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'ceramic/internal/uploads';
-import { toFile } from 'ceramic/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'ceramic-ai/internal/uploads';
+import { toFile } from 'ceramic-ai/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
