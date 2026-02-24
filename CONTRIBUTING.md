@@ -60,7 +60,7 @@ $ yarn link ceramic-ai
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global ceramic-ai
+$ pnpm link --global ceramic-ai
 ```
 
 ## Running tests
