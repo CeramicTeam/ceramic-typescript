@@ -128,7 +128,7 @@ export class Ceramic {
    * API Client for interfacing with the Ceramic API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['CERAMIC_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['CERAMIC_BASE_URL'] ?? https://api.ceramic.ai] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['CERAMIC_BASE_URL'] ?? https://api.ceramic.ai/] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -150,7 +150,7 @@ export class Ceramic {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `https://api.ceramic.ai`,
+      baseURL: baseURL || `https://api.ceramic.ai/`,
     };
 
     this.baseURL = options.baseURL!;
@@ -196,7 +196,7 @@ export class Ceramic {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== 'https://api.ceramic.ai';
+    return this.baseURL !== 'https://api.ceramic.ai/';
   }
 
   /**
@@ -210,7 +210,7 @@ export class Ceramic {
    * ```
    */
   search(body: TopLevelAPI.SearchParams, options?: RequestOptions): APIPromise<TopLevelAPI.SearchResponse> {
-    return this.post('/', { body, ...options });
+    return this.post('/search', { body, ...options });
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
