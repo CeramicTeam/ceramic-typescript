@@ -6,4 +6,4 @@ Types:
 
 Methods:
 
-- <code title="post /">client.<a href="./src/index.ts">search</a>({ ...params }) -> SearchResponse</code>
+- <code title="post /search">client.<a href="./src/index.ts">search</a>({ ...params }) -> SearchResponse</code>
