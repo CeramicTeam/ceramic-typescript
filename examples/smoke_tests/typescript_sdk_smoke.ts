@@ -17,7 +17,7 @@ function bad(label: string, msg?: string) {
 function makeClient(apiKey?: string): Ceramic {
   const key = apiKey ?? process.env['CERAMIC_API_KEY'];
   if (!key) throw new Error('CERAMIC_API_KEY is not set');
-  return new Ceramic({ apiKey: key, baseURL: 'https://api.ceramic.ai/search' });
+  return new Ceramic({ apiKey: key, baseURL: 'https://api.ceramic.ai/' });
 }
 
 function assertRFCErrorShape(err: any): void {
