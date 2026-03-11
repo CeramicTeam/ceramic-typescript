@@ -108,7 +108,7 @@ async function testBasicQueryWithParams(): Promise<void> {
   const client = makeClient();
   await expectOk('basic query with params', () =>
     client.search({
-      query: 'Stanford CS229'
+      query: 'Stanford CS229',
     }),
   );
 }
