@@ -1,4 +1,4 @@
-import Ceramic from '../../dist/index.js';
+import Ceramic from 'ceramic-ai';
 
 let PASSED = 0;
 let FAILED = 0;
