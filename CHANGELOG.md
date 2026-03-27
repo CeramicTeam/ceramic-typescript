@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2026-03-27)
+
+Full Changelog: [v1.0.0...v1.1.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.0.0...v1.1.0)
+
+### Features
+
+* Update main with staging ([83b415e](https://github.com/CeramicTeam/ceramic-typescript/commit/83b415e2a911b7f9fbf765ffe8bc40b81aa48228))
+
 ## 1.0.0 (2026-03-26)
 
 Full Changelog: [v0.0.1...v1.0.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v0.0.1...v1.0.0)
