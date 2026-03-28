@@ -104,15 +104,6 @@ async function testBasicQuery(): Promise<void> {
   await expectOk('basic query', () => client.search({ query: 'California rental laws' }));
 }
 
-async function testBasicQueryWithParams(): Promise<void> {
-  const client = makeClient();
-  await expectOk('basic query with params', () =>
-    client.search({
-      query: 'Stanford CS229',
-    }),
-  );
-}
-
 async function testInvalidApiKey(): Promise<void> {
   const client = makeClient('invalid_api_key');
   await expectApiError('invalid api key', () => client.search({ query: 'test invalid key' }), {
