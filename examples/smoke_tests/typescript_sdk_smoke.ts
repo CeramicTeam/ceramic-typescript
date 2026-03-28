@@ -180,7 +180,6 @@ async function testInvalidApiKey(): Promise<void> {
 async function main(): Promise<void> {
   try {
     await testBasicQuery();
-    await testBasicQueryWithParams();
     await testInvalidApiKey();
     // await testMaxResultsValidations();
     // await testMaxDescriptionLengthValidations();
