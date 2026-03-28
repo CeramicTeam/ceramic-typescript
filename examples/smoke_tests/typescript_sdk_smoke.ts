@@ -1,5 +1,9 @@
 import Ceramic from 'ceramic-ai';
 
+// ---------------------------
+// Helpers
+// ---------------------------
+
 let PASSED = 0;
 let FAILED = 0;
 
@@ -48,6 +52,19 @@ async function expectOk(label: string, fn: () => Promise<any>) {
     bad(label, `got ${err?.constructor?.name ?? typeof err}: ${err?.message ?? String(err)}`);
     // optional: print body
     // console.log('   status:', getStatus(err), 'code:', getCode(err), 'error:', err?.error ?? err);
+  }
+}
+
+async function expectValidationError(label: string, fn: () => Promise<any>) {
+  try {
+    await fn();
+    bad(label, 'unexpected success (expected a validation error)');
+  } catch (err: any) {
+    if (err instanceof Ceramic.APIError) {
+      bad(label, `hit the API instead of failing client-side: ${err?.message}`);
+    } else {
+      ok(label);
+    }
   }
 }
 
@@ -109,8 +126,16 @@ async function testInvalidApiKey(): Promise<void> {
   await expectApiError('invalid api key', () => client.search({ query: 'test invalid key' }), {
     exc: Ceramic.AuthenticationError,
     status: 401,
-    code: 'invalid_api_key', // remove if your API uses a different code
+    code: 'invalid_api_key',
   });
+}
+
+async function testQueryValidation(): Promise<void> {
+  const client = makeClient();
+  await expectValidationError('query: too many words', () =>
+    client.search({ query: Array(51).fill('word').join(' ') }),
+  );
+  await expectValidationError('query: blank', () => client.search({ query: '   ' }));
 }
 
 // async function testMaxResultsValidations(): Promise<void> {
@@ -173,14 +198,11 @@ async function testInvalidApiKey(): Promise<void> {
 //   }
 // }
 
-// ---------------------------
-// Main
-// ---------------------------
-
 async function main(): Promise<void> {
   try {
     await testBasicQuery();
     await testInvalidApiKey();
+    await testQueryValidation();
     // await testMaxResultsValidations();
     // await testMaxDescriptionLengthValidations();
   } finally {
