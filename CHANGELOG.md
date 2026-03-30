@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0 (2026-03-30)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **ts-sdk:** add client-side validation for search query word count ([84ef3ce](https://github.com/CeramicTeam/ceramic-typescript/commit/84ef3cebee739204f055cc78c925744e63e6ea5c))
+* Update main with staging ([0b93089](https://github.com/CeramicTeam/ceramic-typescript/commit/0b93089480824a2a65bd53d70b8a3d3e3f27bb32))
+
+
+### Bug Fixes
+
+* run eslint --fix to resolve prettier formatting errors ([7136115](https://github.com/CeramicTeam/ceramic-typescript/commit/713611565c2c64be6aca0f6f402716aaf319618d))
+
 ## 1.1.0 (2026-03-27)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.0.0...v1.1.0)
