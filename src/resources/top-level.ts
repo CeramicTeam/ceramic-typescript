@@ -58,7 +58,7 @@ export namespace SearchResponse {
 
 export interface SearchParams {
   /**
-   * The search query in natural language. Must contain between 1 and 50 words (words
+   * The search query in keyword format. Must contain between 1 and 50 words (words
    * are separated by spaces; extra whitespace is ignored).
    */
   query: string;
