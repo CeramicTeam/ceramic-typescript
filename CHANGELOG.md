@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.1 (2026-04-07)
+
+Full Changelog: [v1.2.0...v1.2.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.2.0...v1.2.1)
+
+### Features
+
+* Update main with staging ([7a54314](https://github.com/CeramicTeam/ceramic-typescript/commit/7a5431457c4477baadf420a3cc52b87cf3354827))
+
+
+### Bug Fixes
+
+* **internal:** gitignore generated `oidc` dir ([57d079d](https://github.com/CeramicTeam/ceramic-typescript/commit/57d079da7189c420d4db86d24e59cc7a363112eb))
+
 ## 1.2.0 (2026-03-30)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.1.0...v1.2.0)
