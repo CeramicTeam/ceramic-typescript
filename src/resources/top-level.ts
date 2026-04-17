@@ -32,11 +32,6 @@ export namespace SearchResponse {
       description: string;
 
       /**
-       * Relevance score for the result.
-       */
-      score: number;
-
-      /**
        * The title of the web page.
        */
       title: string;
