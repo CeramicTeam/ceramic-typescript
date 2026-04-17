@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.0 (2026-04-17)
+
+Full Changelog: [v1.2.1...v2.0.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.2.1...v2.0.0)
+
+### Features
+
+* Updating main with staging ([f63f2c3](https://github.com/CeramicTeam/ceramic-typescript/commit/f63f2c3c4fbdd141d6a9ecd235e2f43afcd40d25))
+
+
+### Chores
+
+* **ci:** remove release-doctor workflow ([5bf176e](https://github.com/CeramicTeam/ceramic-typescript/commit/5bf176e3a80987c37aeb581a0d8f4b411f13a37f))
+* **internal:** codegen related update ([b0ecf81](https://github.com/CeramicTeam/ceramic-typescript/commit/b0ecf8140149421a7573de12922d5758ccb5e6ee))
+
 ## 1.2.1 (2026-04-07)
 
 Full Changelog: [v1.2.0...v1.2.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.2.0...v1.2.1)
