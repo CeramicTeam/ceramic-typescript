@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.1 (2026-04-23)
+
+Full Changelog: [v2.0.0...v2.0.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.0.0...v2.0.1)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([90cc394](https://github.com/CeramicTeam/ceramic-typescript/commit/90cc394bcce6613a7c9ae1e814fcf81d70e12b52))
+
 ## 2.0.0 (2026-04-17)
 
 Full Changelog: [v1.2.1...v2.0.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v1.2.1...v2.0.0)
