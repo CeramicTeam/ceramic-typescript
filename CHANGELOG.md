@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.0 (2026-04-28)
+
+Full Changelog: [v2.0.1...v2.1.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.0.1...v2.1.0)
+
+### Features
+
+* support setting headers via env ([eb06f21](https://github.com/CeramicTeam/ceramic-typescript/commit/eb06f21973f035f4c14ae6a456694aebb4c9dd6e))
+
+
+### Chores
+
+* **internal:** codegen related update ([8ecce89](https://github.com/CeramicTeam/ceramic-typescript/commit/8ecce8985a4de4f16036c68028dc38626e1e6e24))
+
 ## 2.0.1 (2026-04-23)
 
 Full Changelog: [v2.0.0...v2.0.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.0.0...v2.0.1)
