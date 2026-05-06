@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.1 (2026-05-06)
+
+Full Changelog: [v2.1.0...v2.1.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.0...v2.1.1)
+
+### Chores
+
+* **format:** run eslint and prettier separately ([659db5b](https://github.com/CeramicTeam/ceramic-typescript/commit/659db5b6c38e505f907ca35ff839615e7472c6f5))
+
 ## 2.1.0 (2026-04-28)
 
 Full Changelog: [v2.0.1...v2.1.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.0.1...v2.1.0)
