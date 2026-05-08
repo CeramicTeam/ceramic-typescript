@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.2 (2026-05-08)
+
+Full Changelog: [v2.1.1...v2.1.2](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.1...v2.1.2)
+
+### Chores
+
+* redact api-key headers in debug logs ([c03c1ef](https://github.com/CeramicTeam/ceramic-typescript/commit/c03c1efe01817e371f5a7362945eb0f108797551))
+
 ## 2.1.1 (2026-05-06)
 
 Full Changelog: [v2.1.0...v2.1.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.0...v2.1.1)
