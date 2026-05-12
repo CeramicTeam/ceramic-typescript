@@ -22,10 +22,6 @@ describe('top level methods', () => {
 
   // Mock server tests are disabled
   test.skip('search: required and optional params', async () => {
-    const response = await client.search({
-      query: 'California rental laws',
-      maxDescriptionLength: 1,
-      maxResults: 1,
-    });
+    const response = await client.search({ query: 'California rental laws', maxDescriptionLength: 1000 });
   });
 });
