@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.0 (2026-05-12)
+
+Full Changelog: [v2.1.2...v2.2.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.2...v2.2.0)
+
+### Features
+
+* add maxDescriptionLength parameter ([df80f17](https://github.com/CeramicTeam/ceramic-typescript/commit/df80f1724ce97e0740b405aed46b1dc07d386165))
+
 ## 2.1.2 (2026-05-08)
 
 Full Changelog: [v2.1.1...v2.1.2](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.1...v2.1.2)
