@@ -167,36 +167,36 @@ async function testQueryValidation(): Promise<void> {
 //   }
 // }
 
-// async function testMaxDescriptionLengthValidations(): Promise<void> {
-//   const client = makeClient();
+async function testMaxDescriptionLengthValidations(): Promise<void> {
+  const client = makeClient();
 
-//   const cases: Array<{ name: string; value: number; shouldSucceed: boolean }> = [
-//     { name: 'zero', value: 0, shouldSucceed: false },
-//     { name: 'small', value: 40, shouldSucceed: false },
-//     { name: 'valid_small', value: 50, shouldSucceed: true },
-//     { name: 'valid_default', value: 1500, shouldSucceed: true },
-//     { name: 'very_large', value: 6000, shouldSucceed: false },
-//   ];
+  const cases: Array<{ name: string; value: number; shouldSucceed: boolean }> = [
+    { name: 'zero', value: 0, shouldSucceed: false },
+    { name: 'below_min', value: 900, shouldSucceed: false },
+    { name: 'valid_min', value: 1000, shouldSucceed: true },
+    { name: 'valid_default', value: 3000, shouldSucceed: true },
+    { name: 'above_max', value: 9000, shouldSucceed: false },
+  ];
 
-//   for (const c of cases) {
-//     const label = `maxDescriptionLength: ${c.name} (maxDescriptionLength=${c.value})`;
-//     if (c.shouldSucceed) {
-//       await expectOk(label, () =>
-//         client.search({ query: 'tenant rights guide', maxDescriptionLength: c.value }),
-//       );
-//     } else {
-//       await expectApiError(
-//         label,
-//         () => client.search({ query: 'tenant rights guide', maxDescriptionLength: c.value }),
-//         {
-//           exc: Ceramic.BadRequestError,
-//           status: 400,
-//           // code: 'invalid_parameter', // optionally enforce your API code
-//         },
-//       );
-//     }
-//   }
-// }
+  for (const c of cases) {
+    const label = `maxDescriptionLength: ${c.name} (maxDescriptionLength=${c.value})`;
+    if (c.shouldSucceed) {
+      await expectOk(label, () =>
+        client.search({ query: 'tenant rights guide', maxDescriptionLength: c.value }),
+      );
+    } else {
+      await expectApiError(
+        label,
+        () => client.search({ query: 'tenant rights guide', maxDescriptionLength: c.value }),
+        {
+          exc: Ceramic.UnprocessableEntityError,
+          status: 422,
+          code: 'invalid_parameter',
+        },
+      );
+    }
+  }
+}
 
 async function main(): Promise<void> {
   try {
@@ -204,7 +204,7 @@ async function main(): Promise<void> {
     await testInvalidApiKey();
     await testQueryValidation();
     // await testMaxResultsValidations();
-    // await testMaxDescriptionLengthValidations();
+    await testMaxDescriptionLengthValidations();
   } finally {
     const total = PASSED + FAILED;
     console.log(`\nSummary: ✅ ${PASSED} passed, ❌ ${FAILED} failed (total ${total})`);
