@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.1 (2026-05-13)
+
+Full Changelog: [v2.2.0...v2.2.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.0...v2.2.1)
+
 ## 2.2.0 (2026-05-12)
 
 Full Changelog: [v2.1.2...v2.2.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.1.2...v2.2.0)
