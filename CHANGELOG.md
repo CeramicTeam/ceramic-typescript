@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.2.2 (2026-05-26)
+
+Full Changelog: [v2.2.1...v2.2.2](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.1...v2.2.2)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([da93071](https://github.com/CeramicTeam/ceramic-typescript/commit/da930713ecf6ee9ea15925e1b3b58aa55cf26b24))
+
+
+### Chores
+
+* **tests:** remove redundant File import ([6edc028](https://github.com/CeramicTeam/ceramic-typescript/commit/6edc0286b14f3370193319d34377baba4eb5b650))
+
 ## 2.2.1 (2026-05-13)
 
 Full Changelog: [v2.2.0...v2.2.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.0...v2.2.1)
