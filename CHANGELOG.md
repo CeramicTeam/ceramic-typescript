@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.3 (2026-06-17)
+
+Full Changelog: [v2.2.2...v2.2.3](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.2...v2.2.3)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([de95f41](https://github.com/CeramicTeam/ceramic-typescript/commit/de95f410ecc8460c0e3dfee5793848d2e182fb70))
+
 ## 2.2.2 (2026-05-26)
 
 Full Changelog: [v2.2.1...v2.2.2](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.1...v2.2.2)
