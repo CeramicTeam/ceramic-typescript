@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.4 (2026-07-11)
+
+Full Changelog: [v2.2.3...v2.2.4](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.3...v2.2.4)
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([68599d9](https://github.com/CeramicTeam/ceramic-typescript/commit/68599d9391df2835568a76434e1bb1e9b46548e3))
+
 ## 2.2.3 (2026-06-17)
 
 Full Changelog: [v2.2.2...v2.2.3](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.2...v2.2.3)
