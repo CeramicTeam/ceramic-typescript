@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.0 (2026-07-18)
+
+Full Changelog: [v2.2.4...v2.3.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.4...v2.3.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([deeaa31](https://github.com/CeramicTeam/ceramic-typescript/commit/deeaa310d4f9d27bda7895e5f43d8c49f78b2100))
+
 ## 2.2.4 (2026-07-11)
 
 Full Changelog: [v2.2.3...v2.2.4](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.3...v2.2.4)
