@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.3.1 (2026-08-14)
+
+Full Changelog: [v2.3.0...v2.3.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.3.0...v2.3.1)
+
+### Bug Fixes
+
+* remove trailing whitespace and missing newline in build-and-verify.yml for lint ([a859aec](https://github.com/CeramicTeam/ceramic-typescript/commit/a859aeca9a0099c45eb2c6345cd20ecc728e6971))
+* restore generated branch exclusion in ci.yml and correct tarball install path in build-and-verify.yml ([bb57f4a](https://github.com/CeramicTeam/ceramic-typescript/commit/bb57f4a80c2be56581f3c461268a5ecbabe8bca9))
+
 ## 2.3.0 (2026-07-18)
 
 Full Changelog: [v2.2.4...v2.3.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.2.4...v2.3.0)
