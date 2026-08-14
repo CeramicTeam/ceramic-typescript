@@ -18,8 +18,9 @@ jobs:
         env:
           CERAMIC_API_KEY: ${{ secrets.CERAMIC_API_KEY }}
         run: |
+          cp -r "$GITHUB_WORKSPACE"/examples/smoke_tests /tmp/test-project/smoke_tests
           cd /tmp/test-project
-          npx ts-node ../../examples/smoke_tests/typescript_sdk_smoke.ts
+          npx ts-node smoke_tests/typescript_sdk_smoke.ts
       - uses: actions/upload-artifact@v4
         with:
           name: typescript-tarball-pr-${{ github.event.pull_request.number }}
