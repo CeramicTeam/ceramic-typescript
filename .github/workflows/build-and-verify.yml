@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  typescript-build-verify:  
+  typescript-build-verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
