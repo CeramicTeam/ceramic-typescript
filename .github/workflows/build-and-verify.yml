@@ -12,15 +12,17 @@ jobs:
       - run: npm pack
       - run: |
           mkdir /tmp/test-project && cd /tmp/test-project && npm init -y
+          npm pkg set type=module
+          npm install -D typescript tsx
           npm install "$GITHUB_WORKSPACE"/*.tgz
           node -e "const c = require('ceramic-ai'); console.log(c)"
       - name: Run smoke tests against the built tarball
         env:
           CERAMIC_API_KEY: ${{ secrets.CERAMIC_API_KEY }}
         run: |
-          cp -r "$GITHUB_WORKSPACE"/examples/smoke_tests /tmp/test-project/smoke_tests
+          cp "$GITHUB_WORKSPACE"/examples/smoke_tests/typescript_sdk_smoke.ts /tmp/test-project/
           cd /tmp/test-project
-          npx ts-node smoke_tests/typescript_sdk_smoke.ts
+          npx tsx typescript_sdk_smoke.ts
       - uses: actions/upload-artifact@v4
         with:
           name: typescript-tarball-pr-${{ github.event.pull_request.number }}
