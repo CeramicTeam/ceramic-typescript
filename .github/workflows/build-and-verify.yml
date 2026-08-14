@@ -1,0 +1,26 @@
+name: Build and verify package
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  typescript-build-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm pack
+      - run: |
+          mkdir /tmp/test-project && cd /tmp/test-project && npm init -y
+          npm install "$GITHUB_WORKSPACE"/*.tgz
+          node -e "const c = require('ceramic-ai'); console.log(c)"
+      - name: Run smoke tests against the built tarball
+        env:
+          CERAMIC_API_KEY: ${{ secrets.CERAMIC_API_KEY }}
+        run: |
+          cd /tmp/test-project
+          npx ts-node ../../examples/smoke_tests/typescript_sdk_smoke.ts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: typescript-tarball-pr-${{ github.event.pull_request.number }}
+          path: '*.tgz'
