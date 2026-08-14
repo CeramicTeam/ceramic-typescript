@@ -12,7 +12,7 @@ jobs:
       - run: npm pack
       - run: |
           mkdir /tmp/test-project && cd /tmp/test-project && npm init -y
-          npm install /path/to/*.tgz
+          npm install "$GITHUB_WORKSPACE"/*.tgz
           node -e "const c = require('ceramic-ai'); console.log(c)"
       - name: Run smoke tests against the built tarball
         env:
