@@ -5,8 +5,8 @@ name: Publish NPM
 on:
   workflow_dispatch:
 
-  release:
-    types: [published]
+  push:
+    branches: [main]
 
 jobs:
   publish:
