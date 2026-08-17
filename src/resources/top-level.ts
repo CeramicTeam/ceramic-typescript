@@ -59,6 +59,12 @@ export interface SearchParams {
   query: string;
 
   /**
+   * Opaque identifier used to correlate this request with pipeline validation
+   * traces. For debugging purposes only; has no effect on search results.
+   */
+  debugTraceId?: string;
+
+  /**
    * Maximum character length for each result's description.
    */
   maxDescriptionLength?: number;

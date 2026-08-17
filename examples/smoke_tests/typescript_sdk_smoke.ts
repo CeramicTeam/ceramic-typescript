@@ -198,6 +198,14 @@ async function testMaxDescriptionLengthValidations(): Promise<void> {
   }
 }
 
+async function testDebugTraceId(): Promise<void> {
+  const client = makeClient();
+
+  await expectOk('debugTraceId: accepted', () =>
+    client.search({ query: 'tenant rights guide', debugTraceId: 'smoke-test-trace-1' }),
+  );
+}
+
 async function main(): Promise<void> {
   try {
     await testBasicQuery();
@@ -205,6 +213,7 @@ async function main(): Promise<void> {
     await testQueryValidation();
     // await testMaxResultsValidations();
     await testMaxDescriptionLengthValidations();
+    await testDebugTraceId();
   } finally {
     const total = PASSED + FAILED;
     console.log(`\nSummary: ✅ ${PASSED} passed, ❌ ${FAILED} failed (total ${total})`);
