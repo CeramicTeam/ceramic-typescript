@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.3.2 (2026-08-17)
+
+Full Changelog: [v2.3.1...v2.3.2](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.3.1...v2.3.2)
+
+### Bug Fixes
+
+* add id-token write permission required by claude-code-action's OIDC exchange ([e2a75a8](https://github.com/CeramicTeam/ceramic-typescript/commit/e2a75a8d64400c02d8c4853a8ba5d816e9849b05))
+* repair missing run key in Run tests step, add workflow_dispatch for manual testing ([522bd73](https://github.com/CeramicTeam/ceramic-typescript/commit/522bd73b7372e9e837c742b404837e55c7e38a06))
+* satisfy prettier formatting in CLAUDE.md and agent-sdk-sync.yml ([260706b](https://github.com/CeramicTeam/ceramic-typescript/commit/260706b42052243b5301bd2546cca934b86b3c7f))
+* set up Node and pnpm before running bootstrap/lint/test ([742f732](https://github.com/CeramicTeam/ceramic-typescript/commit/742f7320e14d5f51700e91ab99ca1cfdf551b7fa))
+
+
+### Documentation
+
+* clarify Full Changelog link must always be kept, not just commit-link omission ([632c796](https://github.com/CeramicTeam/ceramic-typescript/commit/632c7969b257e338bb2e9a1b6cf637882025132b))
+
 ## 2.3.1 (2026-08-14)
 
 Full Changelog: [v2.3.0...v2.3.1](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.3.0...v2.3.1)
