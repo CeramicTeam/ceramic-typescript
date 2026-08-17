@@ -44,6 +44,7 @@ This package is already past 1.0 (currently in the `2.x` series) — use standar
   breaking change.
 
 Update the version in **both** files (they must always match):
+
 - `package.json` — `"version": "X.Y.Z"`
 - `src/version.ts` — `export const VERSION = 'X.Y.Z';` (drop the trailing
   `// x-release-please-version` comment — release-please no longer manages this file)
