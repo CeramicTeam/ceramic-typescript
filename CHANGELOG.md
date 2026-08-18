@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.4.0 (2026-08-18)
+
+Full Changelog: [v2.3.3...v2.4.0](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.3.3...v2.4.0)
+
+### Features
+
+* **search:** add optional maxResults parameter
+
 ## 2.3.3 (2026-08-17)
 
 Full Changelog: [v2.3.2...v2.3.3](https://github.com/CeramicTeam/ceramic-typescript/compare/v2.3.2...v2.3.3)
