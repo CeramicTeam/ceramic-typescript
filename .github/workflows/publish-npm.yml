@@ -13,7 +13,7 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     environment: <environment-name>
 
@@ -35,3 +35,15 @@ jobs:
       - name: Publish to NPM
         run: |
           bash ./bin/publish-npm
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "Release v$VERSION already exists, skipping."
+          else
+            NOTES=$(awk "/^## $VERSION /{flag=1; next} /^## /{flag=0} flag" CHANGELOG.md)
+            gh release create "v$VERSION" --title "v$VERSION" --notes "$NOTES"
+          fi
