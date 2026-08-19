@@ -155,7 +155,9 @@ async function testMaxResultsValidations(): Promise<void> {
     if (c.shouldSucceed) {
       await expectOk(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
     } else {
-      await expectValidationError(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
+      await expectValidationError(label, () =>
+        client.search({ query: 'rate limits and retries', maxResults: c.value }),
+      );
     }
   }
 }
