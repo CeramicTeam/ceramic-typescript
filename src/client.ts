@@ -113,6 +113,14 @@ function validateSearchQuery(query: string): void {
   }
 }
 
+function validateMaxResults(maxResults: number): void {
+  if (!Number.isInteger(maxResults) || maxResults < 1 || maxResults > 50) {
+    throw new Errors.CeramicError(
+      `Invalid 'maxResults': expected an integer between 1 and 50, got ${maxResults}.`,
+    );
+  }
+}
+
 /**
  * API Client for interfacing with the Ceramic API.
  */
@@ -161,7 +169,7 @@ export class Ceramic {
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? Ceramic.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? Ceramic.DEFAULT_TIMEOUT; /* 1 minute */
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
@@ -230,6 +238,7 @@ export class Ceramic {
    */
   search(body: TopLevelAPI.SearchParams, options?: RequestOptions): APIPromise<TopLevelAPI.SearchResponse> {
     validateSearchQuery(body.query);
+    if (body.maxResults !== undefined) validateMaxResults(body.maxResults);
     return this.post('/search', { body, ...options });
   }
 

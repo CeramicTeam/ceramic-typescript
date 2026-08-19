@@ -62,6 +62,11 @@ export interface SearchParams {
    * Maximum character length for each result's description.
    */
   maxDescriptionLength?: number;
+
+  /**
+   * The number of search results to return.
+   */
+  maxResults?: number;
 }
 
 export declare namespace TopLevel {

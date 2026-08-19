@@ -138,34 +138,29 @@ async function testQueryValidation(): Promise<void> {
   await expectValidationError('query: blank', () => client.search({ query: '   ' }));
 }
 
-// async function testMaxResultsValidations(): Promise<void> {
-//   const client = makeClient();
+async function testMaxResultsValidations(): Promise<void> {
+  const client = makeClient();
 
-//   const cases: Array<{ name: string; value: number; shouldSucceed: boolean }> = [
-//     { name: 'zero', value: 0, shouldSucceed: false },
-//     { name: 'negative', value: -1, shouldSucceed: false },
-//     { name: 'valid_min', value: 1, shouldSucceed: true },
-//     { name: 'valid_default', value: 10, shouldSucceed: true },
-//     { name: 'very_large', value: 100, shouldSucceed: false },
-//   ];
+  const cases: Array<{ name: string; value: number; shouldSucceed: boolean }> = [
+    { name: 'zero', value: 0, shouldSucceed: false },
+    { name: 'negative', value: -1, shouldSucceed: false },
+    { name: 'valid_min', value: 1, shouldSucceed: true },
+    { name: 'valid_default', value: 10, shouldSucceed: true },
+    { name: 'valid_max', value: 50, shouldSucceed: true },
+    { name: 'above_max', value: 51, shouldSucceed: false },
+  ];
 
-//   for (const c of cases) {
-//     const label = `maxResults: ${c.name} (maxResults=${c.value})`;
-//     if (c.shouldSucceed) {
-//       await expectOk(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
-//     } else {
-//       await expectApiError(
-//         label,
-//         () => client.search({ query: 'rate limits and retries', maxResults: c.value }),
-//         {
-//           exc: Ceramic.BadRequestError,
-//           status: 400,
-//           // code: 'invalid_parameter', // optionally enforce your API code
-//         },
-//       );
-//     }
-//   }
-// }
+  for (const c of cases) {
+    const label = `maxResults: ${c.name} (maxResults=${c.value})`;
+    if (c.shouldSucceed) {
+      await expectOk(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
+    } else {
+      await expectValidationError(label, () =>
+        client.search({ query: 'rate limits and retries', maxResults: c.value }),
+      );
+    }
+  }
+}
 
 async function testMaxDescriptionLengthValidations(): Promise<void> {
   const client = makeClient();
@@ -203,7 +198,7 @@ async function main(): Promise<void> {
     await testBasicQuery();
     await testInvalidApiKey();
     await testQueryValidation();
-    // await testMaxResultsValidations();
+    await testMaxResultsValidations();
     await testMaxDescriptionLengthValidations();
   } finally {
     const total = PASSED + FAILED;
