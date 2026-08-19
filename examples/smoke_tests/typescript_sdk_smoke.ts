@@ -146,8 +146,8 @@ async function testMaxResultsValidations(): Promise<void> {
     { name: 'negative', value: -1, shouldSucceed: false },
     { name: 'valid_min', value: 1, shouldSucceed: true },
     { name: 'valid_default', value: 10, shouldSucceed: true },
-    { name: 'valid_max', value: 20, shouldSucceed: true },
-    { name: 'above_max', value: 21, shouldSucceed: false },
+    { name: 'valid_max', value: 50, shouldSucceed: true },
+    { name: 'above_max', value: 51, shouldSucceed: false },
   ];
 
   for (const c of cases) {
@@ -155,15 +155,7 @@ async function testMaxResultsValidations(): Promise<void> {
     if (c.shouldSucceed) {
       await expectOk(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
     } else {
-      await expectApiError(
-        label,
-        () => client.search({ query: 'rate limits and retries', maxResults: c.value }),
-        {
-          exc: Ceramic.UnprocessableEntityError,
-          status: 422,
-          code: 'invalid_parameter',
-        },
-      );
+      await expectValidationError(label, () => client.search({ query: 'rate limits and retries', maxResults: c.value }));
     }
   }
 }
