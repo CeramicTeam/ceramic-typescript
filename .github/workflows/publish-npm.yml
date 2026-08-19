@@ -1,4 +1,4 @@
-# This workflow is triggered when a GitHub release is created.
+# This workflow is triggered on push to main, and creates a GitHub Release once publish succeeds.
 # It can also be run manually to re-publish to NPM in case it failed for some reason.
 # You can run this workflow by navigating to https://www.github.com/CeramicTeam/ceramic-typescript/actions/workflows/publish-npm.yml
 name: Publish NPM
@@ -9,11 +9,30 @@ on:
     branches: [main]
 
 jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.check.outputs.should_publish }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Check if this version is already published
+        id: check
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view ceramic-ai versions --json 2>/dev/null | grep -q "\"$VERSION\""; then
+            echo "should_publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
   publish:
+    needs: check-version
+    if: needs.check-version.outputs.should_publish == 'true'
     name: publish
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     environment: <environment-name>
 
@@ -35,3 +54,15 @@ jobs:
       - name: Publish to NPM
         run: |
           bash ./bin/publish-npm
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "Release v$VERSION already exists, skipping."
+          else
+            NOTES=$(awk "/^## $VERSION /{flag=1; next} /^## /{flag=0} flag" CHANGELOG.md)
+            gh release create "v$VERSION" --title "v$VERSION" --notes "$NOTES"
+          fi
